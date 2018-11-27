@@ -1,0 +1,21 @@
+{
+  "name": "356webproj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarkunz/356WebProj.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarkunz/356WebProj/issues"
+  },
+  "homepage": "https://github.com/sarkunz/356WebProj#readme"
+}
