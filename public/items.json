@@ -1,0 +1,46 @@
+[
+    { 
+        "name": "IAMS Protective Health Dog Food", 
+        "price": "15.99", 
+        "vendor": "Amazon",
+        "img": "https://images-na.ssl-images-amazon.com/images/I/81O8cuVRtHL._SL1500_.jpg",
+        "itemDescript": "Description of item"
+    },
+    { 
+        "name": "Aussie Shampoo", 
+        "price": "6.99", 
+        "vendor": "Amazon",
+        "img": "https://i5.walmartimages.com/asr/ea8a9842-494e-4aea-9754-a706e23b3d07_1.9810fda58e535786440d9c74895c227b.jpeg", 
+        "itemDescript": "Description of item" 
+    },
+    { 
+        "name": "Aussie Conditioner", 
+        "price": "6.99", 
+        "vendor": "Amazon",
+        "img": "https://i5.walmartimages.com/asr/ea8a9842-494e-4aea-9754-a706e23b3d07_1.9810fda58e535786440d9c74895c227b.jpeg", 
+        "itemDescript": "Description of item" 
+    },
+    { 
+        "name": "Secret Powder Fresh Deodorant", 
+        "price": "4.05", 
+        "vendor": "Amazon",
+        "img": "https://pics.drugstore.com/prodimg/231228/900.jpg", 
+        "itemDescript": "Description of item" 
+    },
+    { 
+        "name": "Kroger 2% Milk", 
+        "price": "2.99",
+        "vendor": "Wal-Mart",
+        "img": "https://d2lnr5mha7bycj.cloudfront.net/product-image/file/large_8139e88d-1814-4ff8-ab19-9ce6e1fb6832.png", 
+        "itemDescript": "Description of item"
+    },
+    { 
+        "name": "Purina Sensitive Systems Cat Food", 
+        "price": "13.89", 
+        "vendor": "Wal-Mart",
+        "img": "https://s7d1.scene7.com/is/image/PETCO/932620-center-1?$ProductDetail-large$", 
+        "itemDescript": "Description of item" 
+    }
+
+]
+

@@ -1,0 +1,77 @@
+<div class="modal-body">
+  <div class="horizontal">
+    <img class="itemEditImg" src={{item.img}}>
+    <div>
+      <h2>{{item.name}}</h2>
+      <p>${{item.price}}</p>
+      <!--prime-->
+      <p>{{item.itemDescript}}</p>
+    </div>
+  </div>
+
+  <div class="popupAction">
+    <div ng-show="!item.edit" class="addButtons horizontal">
+      <div class="button" ng-click="addReminder(item)">ADD PURCHASE REMINDER</div>
+      <div class="button" ng-click="addAutoPurch(item)">ADD AUTOMATED PURCHASE</div>
+    </div>
+
+    <div class="itemForm" ng-show="item.edit">
+      <h3 ng-show="!item.autoOrder">Purchase Reminder</h3>
+      <h3 ng-show="item.autoOrder">Automatic Order</h3>
+
+      <table ng-show="item.edit">
+        <tbody>
+          <tr>
+            <td ng-show="!item.autoOrder">
+              <p>Remind me to purchase every</p>
+            </td>
+            <td ng-show="item.autoOrder">
+              <p>Automatically purchase every</p>
+            </td>
+            <td>
+              <select class="timedrop" ng-model="item.orderEvery">
+                <option value="day">day</option>
+                <option value="week">week</option>
+                <option value="biweek">two weeks</option>
+                <option value="month" selected>month</option>
+                <option value="bimonth">two months</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td ng-show="!item.autoOrder">
+              <p>Next reminder on</p>
+            </td>
+            <td ng-show="item.autoOrder">
+              <p>Next purchase on</p>
+            </td>
+            <!--<td><input type="date" class="form-control" ng-model="modal.dt" is-open="main.opened" value="{{item.nextOrder}}" close-text="Close" /></td>-->
+
+            <td><input type="date" class="datePicker" value="{{item.nextOrder || today}}" min="{{minDate}}"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p ng-show="!item.autoOrder"><i>Via:</i></p>
+      <p ng-show="item.autoOrder"><i>Notify me of purchase via:</i></p>
+      <ul class='reminderList'>
+        <li><input type="checkbox" ng-checked="item.text"> text to <input type="tel" placeholder={{item.text}} ng-model="item.phone"></li>
+        <li><input type="checkbox" ng-checked="item.email"> email to <input type="email" ng-model="item.email"></li>
+        <li><input type="checkbox" ng-model="item.mobile"> mobile notification</li>
+      </ul>
+
+
+
+      <div class="buttonsCont">
+        <a ng-click="close()" class="button saveBtn cancel">CLOSE</a>
+        <a ng-show="item.autoOrder" ng-click="addAutoItem(item)" class="button saveBtn">SAVE</a>
+        <a ng-show="!item.autoOrder" ng-click="addReminderItem(item)" class="button saveBtn">SAVE</a>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+</div>
