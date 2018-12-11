@@ -33,8 +33,8 @@
             </div>
             <div class="searchResults">
                 <div class="result horizontal" ng-repeat="item in searchResults  | orderBy: item.price" id={{item.id}} ng-click="selectItem($event, item)">
-                    <img class="itemImg" src={{item.img}}>
-                    <div>
+                    <img class="itemImg smallImg" src={{item.img}}>
+                    <div style="padding-top:1em">
                         <div class="name">{{item.name}}</div>
                         <div class="price">${{item.price}}</div>
                         <div class="vendor">{{item.vendor}}</div>

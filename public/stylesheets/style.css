@@ -15,6 +15,10 @@ body,
   overflow:scroll;
 }
 
+body{
+    padding-bottom:4em;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
@@ -44,6 +48,7 @@ select:focus, input:focus {
 a {
   text-decoration: none;
   color: #068587;
+  cursor:pointer;
 }
 
 a:focus {
@@ -130,7 +135,7 @@ input[type="email"]:focus {
 
 #mainBackg {
   height: 100%;
-  background-color: #183243;border-bottom: 1.5px solid black;
+  background-color: #183243;
   color: white;
   text-align: center;
   background-image: url(../images/aisle.jpg);
@@ -142,7 +147,7 @@ input[type="email"]:focus {
 }
 
 .shade {
-  background-color: rgba(24,50,67, .3);
+  background-color: rgba(24,50,67, .7);
 }
 
 .header {
@@ -180,7 +185,7 @@ input[type="email"]:focus {
   width: 10%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom:4em;
+  margin-bottom:1em;
   padding: 1em 5em;
   border: 4px solid #ed553b;
 }
@@ -192,11 +197,20 @@ input[type="email"]:focus {
   box-shadow:none;
 }
 
+.loginText{
+  font-weight:500;
+  font-size:larger;
+}
+
 .titleCont {
   flex: 6;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.titleCont > p{
+  color: #c7cbcf;
 }
 
 #introMessage {
@@ -252,8 +266,15 @@ input[type="email"]:focus {
   flex:6;
 }
 
+.sortDrop{ 
+  padding:2em 3em 0 3em;
+  align-items:center;
+  font-size:smaller;
+  justify-content:flex-end;
+}
+
 .itemList {
-  padding: 2em;
+  padding: 1em 2em;
   display: flex;
   flex-wrap: wrap;
   align-items:flex-end;
@@ -265,11 +286,12 @@ input[type="email"]:focus {
   flex: 0 0 auto;
   /*box-shadow: 1px 1px 10px lightgrey;*/
   padding: 1em;
-  margin: 1em;
+  margin: .5em 1em;
   /*border-radius:5px;*/
   text-align: center;
   border-bottom: 2px solid #c7cbcf;
   width:14em;
+  cursor:pointer;
 }
 
 .item:hover {
@@ -277,9 +299,14 @@ input[type="email"]:focus {
 }
 
 .itemImg {
-  height: 8em;
+  height: 40%;
   padding:1em;
   align-self:center;
+}
+
+.smallImg{
+  height:unset;
+  width:8vw;
 }
 
 .pgTitle {
@@ -311,7 +338,7 @@ input[type="email"]:focus {
 }
 
 .itemCont{
-  height:35vh;
+  height:45%;
 }
 
 .infoText{
@@ -410,9 +437,18 @@ body.modal-open .datepicker {
 .result{
   margin: 1em 3em;
   border-left: 2px solid #c7cbcf;
+  cursor:pointer;
   
 }
 
 .result:hover{
     border-left: 2px solid #ed553b;
+}
+
+.noItems{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5em;
+    color: #c7cbcf;
+    font-size:larger;
 }

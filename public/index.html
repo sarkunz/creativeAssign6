@@ -10,8 +10,10 @@
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="javascripts/orders.js"></script>
+    <script src="javascripts/auth.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
 
     <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
     <script>
@@ -33,20 +35,22 @@
     <div id="mainBackg">
         <div class="shade vertical">
             <div class="header">
-                <!--<img class="logo" src="/images/BBlogo-white.svg"></img>-->
                 <div>
                     <img class="logo" src="/images/BBlogo-white.svg"></img>
                     <span class="logoText white">BREEZE BUY</span>
                 </div>
-                <div class="loginCont">
-                    <input type="text" class="roundInp" placeholder="username" id="username" />
-                    <input type="password" class="roundInp" placeholder="password" id="password" />
-                    <a class="submit" href="mainPg.html">Go</a>
-                </div>
+                <a class="login loginText">LOGIN</a>
+                <!--<div class="loginCont">-->
+                <!--    <input type="text" class="roundInp" placeholder="username" id="username" />-->
+                <!--    <input type="password" class="roundInp" placeholder="password" id="password" />-->
+                <!--    <a class="submit" href="mainPg.html">Go</a>-->
+                <!--</div>-->
             </div>
             <div class="titleCont">
                 <h1 id="introMessage">Organize Your Purchases</h1>
-                <a class="button startBtn" href="mainPg.html">GET STARTED</a>
+                <a class="button startBtn login">GET STARTED</a>
+                <p>or</p>
+                <a class="login loginText">LOGIN</a>
             </div>
         </div>
     </div>
@@ -69,7 +73,7 @@
             </div>
         </div>
 
-        <a class="button startBtn" href="mainPg.html">GET STARTED</a>
+        <a class="button startBtn login">GET STARTED</a>
     </div>
 
 </body>

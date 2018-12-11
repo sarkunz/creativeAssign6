@@ -31,9 +31,19 @@
                 <h1 class="pgTitle">My Re-Purchases</h1>
                 <a class="button" href="search.html">+ITEM</a>
             </div>
+            
+            <div class="horizontal sortDrop">
+                <p>Sort items by: </p>
+                <select ng-model="orderOpt">
+                    <option value="byDate">Upcoming orders</option>
+                    <option value="price">Price</option>
+                    <option value="name">A-Z</option>
+                </select>
+            </div>
+           
     
             <div class="itemList">
-                <div ng-repeat="item in customerItems | orderBy: orderByDate">
+                <div ng-repeat="item in customerItems | orderBy:orderByDate">
                     <div class="item" ng-click="editItem($event, item)">
     
                         <!--TODO: text max-width should be width + padding of item-->
@@ -57,6 +67,7 @@
     
                     </div>
                 </div>
+                <div ng-show="!customerItems.length" class="noItems">Click the "+Item" button above to begin automating purchases</div>
             </div>
     
         </div>

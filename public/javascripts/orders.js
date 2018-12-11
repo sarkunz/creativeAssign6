@@ -3,6 +3,7 @@ angular.module('orders', ['ui.bootstrap']);
 function MainCtrl($scope, $http, $dialog) {
     $scope.customerItems = []; //include item index, autoOrder, reorderPeriod, nextOrder, text, email, mobile
     $scope.items = [];
+    $scope.orderOpt = "byDate";
 
     $http.get('items.json')
         .then(function(res) {
@@ -101,9 +102,16 @@ function MainCtrl($scope, $http, $dialog) {
     }
     
     $scope.orderByDate = function(item) {
-        var parts = item.nextOrder.split('-');
-        var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
-        return date;
+        if($scope.orderOpt == "byDate"){
+            var parts = item.nextOrder.split('-');
+            var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
+            return date;
+        } else if ($scope.orderOpt == "price"){
+            return item.price;
+        }  else if ($scope.orderOpt == "name"){
+            return item.name;
+        }
+        
     }
 
 
