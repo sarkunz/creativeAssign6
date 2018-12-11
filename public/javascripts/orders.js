@@ -217,3 +217,11 @@ function SearchCtrl($scope, $http) {
         });
 
 }
+
+$(document).ready(function() {
+    $('.downArrow').click(function(){
+        console.log("Scrolling");
+        $("html, body").animate({ scrollTop: 700 }, "slow");
+    });
+    
+});

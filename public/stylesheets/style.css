@@ -134,7 +134,7 @@ input[type="email"]:focus {
 /*/////////////INTRO PAGE/////////////*/
 
 #mainBackg {
-  height: 100%;
+  height: 110%;
   background-color: #183243;
   color: white;
   text-align: center;
@@ -179,6 +179,10 @@ input[type="email"]:focus {
 .loginCont {
   display: flex;
   flex-direction: row;
+}
+
+.titleCont > h1{
+  font-size: 6vh;
 }
 
 .startBtn {
@@ -227,6 +231,13 @@ input[type="email"]:focus {
   width: 100%;
   text-align: center;
   padding: 4em 0;
+}
+
+.downArrow{
+  padding:.5em;
+  font-size:40px;
+  color:#c7cbcf;
+  cursor:pointer;
 }
 
 .grey {
