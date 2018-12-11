@@ -1,11 +1,12 @@
 <div class="modal-body">
   <div class="horizontal">
     <img class="itemEditImg" src={{item.img}}>
-    <div>
-      <h2>{{item.name}}</h2>
-      <p>${{item.price}}</p>
-      <!--prime-->
-      <p>{{item.itemDescript}}</p>
+    <div class="itemInfo">
+      <h3>{{item.name}}</h3>
+      <p ng-show="item.multResults" title="Other vendor(s) offer a lower price on item" style="color:#ed553b">${{item.price}}**</p>
+      <p ng-show="!item.multResults">${{item.price}}</p>
+      <p>{{item.vendor}}</p>
+      <a href={{item.itemDescript}}>Link to item <i class="material-icons md-24">launch</i></a>
     </div>
   </div>
 
@@ -32,9 +33,10 @@
               <select class="timedrop" ng-model="item.orderEvery">
                 <option value="day">day</option>
                 <option value="week">week</option>
-                <option value="biweek">two weeks</option>
+                <option value="twoweek">two weeks</option>
                 <option value="month" selected>month</option>
-                <option value="bimonth">two months</option>
+                <option value="threemonth">three months</option>
+                <option value="sixmonths">six months</option>
               </select>
             </td>
           </tr>

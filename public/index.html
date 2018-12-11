@@ -7,11 +7,25 @@
     <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.1.0.js"></script>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:500|Raleway:400,400i,500,600" rel="stylesheet">
-    
+
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="javascripts/orders.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyAslVHd-rRGKxT5F3YHo_oF9iHtgiEne3k",
+            authDomain: "breeze-buy.firebaseapp.com",
+            databaseURL: "https://breeze-buy.firebaseio.com",
+            projectId: "breeze-buy",
+            storageBucket: "breeze-buy.appspot.com",
+            messagingSenderId: "966353356829"
+        };
+        firebase.initializeApp(config);
+    </script>
 
 </head>
 
@@ -22,7 +36,7 @@
                 <!--<img class="logo" src="/images/BBlogo-white.svg"></img>-->
                 <div>
                     <img class="logo" src="/images/BBlogo-white.svg"></img>
-                    <span class="logoTextWhite">BREEZE BUY</span>
+                    <span class="logoText white">BREEZE BUY</span>
                 </div>
                 <div class="loginCont">
                     <input type="text" class="roundInp" placeholder="username" id="username" />
@@ -37,8 +51,24 @@
         </div>
     </div>
     <div id="infoCont">
-        <div class="infoBar grey">Sick of ordering the same items over and over again? <br> <span class="boldFont">Us too. </span></div>
-        <div class="infoBar">Simplify your life by automating the boring purchases</div>
+        <div class="infoBar grey">Sick of ordering the same items over and over again? <br> <span class="boldFont">US TOO. </span></div>
+        <div class="infoBar fancy"><i>Breeze Buy automates recurring purchases to ensure you have what you need when you need it</i></div>
+        <div class="infoBar grey">
+            <p class="boldFont">Two ways to simplify your shopping</p>
+            <div class="horizontal divider space-evenly">
+                <p>Recurring automatic purchases</p>
+                <p>Periodic purchase reminders</p>
+            </div>
+        </div>
+        <div class="infoBar">
+            <p>Shop vendors including:</p>
+            <div class="horizontal space-evenly">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Amazon_logo_plain.svg/200px-Amazon_logo_plain.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/200px-Walmart_logo.svg.png">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Costco_Wholesale_logo_2010-10-26.svg/200px-Costco_Wholesale_logo_2010-10-26.svg.png">
+            </div>
+        </div>
+
         <a class="button startBtn" href="mainPg.html">GET STARTED</a>
     </div>
 

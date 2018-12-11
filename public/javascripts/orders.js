@@ -44,10 +44,18 @@ function MainCtrl($scope, $http, $dialog) {
     $('.searchBar').keyup(function(e) {
         console.log("keydown");
         $scope.searchResults = [];
+        var count = 0;
         $scope.items.forEach(function(item, index) {
+            count = 0;
             var regex = new RegExp($scope.searchPhrase, 'gi');
             if (item.name.match(regex)) { //^phrase to check beginning
-                item.id = index;
+                if(index === 9){
+                    console.log("nine");
+                    item.multResults = true;
+                    console.log(item);
+                } 
+                else item.multResults = false;
+                //item.id = index;
                 $scope.searchResults.push(item);
             }
         });
@@ -61,15 +69,40 @@ function MainCtrl($scope, $http, $dialog) {
         $scope.showDialog($event, item, edit);
     }
     
-    $scope.skipOrder = function(item){
+    $scope.skipOrder = function($event, item){
         //switch statement. Move date back by item.orderEvery
         $event.stopPropagation();
+        var parts = item.nextOrder.split('-');
+        var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
+        switch (item.orderEvery) {
+            case 'day':
+                date.setDate(date.getDate()+1);
+                break;
+            case 'week':
+                date.setDate(date.getDate()+7);
+                break;
+            case 'twoweek':
+                date.setDate(date.getDate()+14);
+                break;
+            case 'month':
+                date.setMonth(date.getMonth()+1);
+                break;
+            case 'threemonth':
+                date.setMonth(date.getMonth()+3);
+                break; 
+            case 'sixmonth':
+                date.setMonth(date.getMonth()+6);
+                break;
+            default:
+                // code
+        }
+        item.nextOrder = date.toISOString().substr(0, 10);
 
     }
     
     $scope.orderByDate = function(item) {
         var parts = item.nextOrder.split('-');
-        var date = new Date(parseInt(parts[2]), parseInt(parts[1]), parseInt(parts[0]));
+        var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
         return date;
     }
 

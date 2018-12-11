@@ -14,36 +14,36 @@
 </head>
 
 <body ng-app="orders" ng-controller="MainCtrl">
-    <div class="vertical">
+    <!--<div class="vertical">-->
         <div class="header">
             <div>
-                <img class="logo" src="/images/BBlogo-grey.svg"></img>
+                <a href="/mainPg.html"><img class="logo" src="/images/BBlogo-grey.svg"></img></a>
                 <span class="logoText">BREEZE BUY</span>
             </div>
             <div style="background-color:lightgrey"></div>
 
-            <i class="material-icons md-36" style="font-size:36px">account_circle</i>
+            <i class="material-icons md-36" style="font-size:36px" title="Account settings coming soon!">account_circle</i>
         </div>
 
         <div class="mainBody">
-            <h1>Search Products</h1>
+            <h1 class="backg">Search Products</h1>
             <div class="horizontal searchCont">
                 <i class="material-icons">search</i>
                 <input type="text" class="searchBar" ng-model="searchPhrase">
             </div>
             <div class="searchResults">
-                <div class="result horizontal" ng-repeat="item in searchResults" id={{item.id}} ng-click="selectItem($event, item)">
+                <div class="result horizontal" ng-repeat="item in searchResults  | orderBy: item.price" id={{item.id}} ng-click="selectItem($event, item)">
                     <img class="itemImg" src={{item.img}}>
                     <div>
                         <div class="name">{{item.name}}</div>
-                        <div class="price">{{item.price}}</div>
-                        <div class="desc">{{itemDescript}}</div>
+                        <div class="price">${{item.price}}</div>
+                        <div class="vendor">{{item.vendor}}</div>
                     </div>
                 </div>
             </div>
         </div>
         
-    </div>
+    <!--</div>-->
     <!-- TODO: add commonly bought items here -->
 </body>
 
