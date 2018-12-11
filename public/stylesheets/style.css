@@ -240,7 +240,6 @@ input[type="email"]:focus {
   cursor:pointer;
 }
 .downArrow:hover{
-  box-shadow: 3px 3px 5px lightgrey;
   color:#ed553b;
 
 }
@@ -449,7 +448,7 @@ body.modal-open .datepicker {
   height:100% !important;
 }
 
-.name{
+.itemCont > .name{
   min-height:3.5em;
 }
 

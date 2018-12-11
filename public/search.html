@@ -26,18 +26,18 @@
         </div>
 
         <div class="mainBody">
-            <h1 class="backg">Search Products</h1>
+            <h1 class="pgTitle">Search Products</h1>
             <div class="horizontal searchCont">
                 <i class="material-icons">search</i>
                 <input type="text" class="searchBar" ng-model="searchPhrase" placeholder=" Search items from Amazon, Wal-Mart, and Costco">
             </div>
             <div class="searchResults">
-                <div class="result horizontal" ng-repeat="item in searchResults  | orderBy: item.price" id={{item.id}} ng-click="selectItem($event, item)">
+                <div class="result horizontal" ng-repeat="item in searchResults  | orderBy: 'item.price'" id={{item.id}} ng-click="selectItem($event, item)">
                     <img class="itemImg smallImg" src={{item.img}}>
                     <div style="padding-top:1em">
                         <div class="name">{{item.name}}</div>
-                        <div class="price">${{item.price}}</div>
-                        <div class="vendor">{{item.vendor}}</div>
+                        <div class="price" style="font-size:smaller"><i>${{item.price}}</i></div>
+                        <div class="vendor" style="font-size:smaller">{{item.vendor}}</div>
                     </div>
                 </div>
             </div>

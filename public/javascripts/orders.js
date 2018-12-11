@@ -219,6 +219,26 @@ function PopupCtrl($scope, item, dialog, $http) {
             window.location.href = '/mainPg.html';
         });
     }
+    
+    // $scope.updateItem = function(item){
+    //     var item = {
+    //         name: item.name,
+    //         price: item.price,
+    //         img: item.img,
+    //         orderEvery: item.orderEvery,
+    //         autoOrder: item.autoOrder,
+    //         useEmail : item.useEmail,
+    //         usePhone: item.usePhone,
+    //         text: item.phone,
+    //         email: item.email,
+    //         mobilNotif: item.mobileNotif,
+    //         nextOrder: $('.datePicker').val(),
+    //         vendor: item.vendor
+    //     };
+    //     $http.put('/update', item).success(function(data) {
+    //         console.log("updated!");
+    //     });
+    // }
 
 
 }

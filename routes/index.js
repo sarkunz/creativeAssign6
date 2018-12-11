@@ -15,6 +15,10 @@ router.post('/add', function(req,res,next){
   });
 });
 
+// router.put('/update', function(req,res,next){
+//     req.body.update();
+// });
+
 //get all items
 router.get('/items', function(req, res, next) { //get is a read
   Item.find(function(err, items) {
@@ -35,16 +39,6 @@ router.param('item', function(req, res, next, id) {
 
 router.get('/items/:item', function(req, res) {
   res.json(req.item);
-});
-
-//update item autoOrder, text, email, mobile, nextOrder, cb
-router.put('/items/:item/update', function(req, res, next) { //put is an update
-  Item.update({ autoOrder: req.new.autoOrder }, { text: req.new.text }, { email: req.new.email },
-              { mobilNotif: req.new.mobile }, { nextOrder: req.new.nextOrder }, { email: req.new.email }, function (err, raw){
-      if (err) return res.send(500, { error: err });
-      return res.send("succesfully saved");
-  });
-  
 });
 
 //delete item 
