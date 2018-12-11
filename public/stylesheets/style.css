@@ -12,7 +12,7 @@ body,
 .ng-scope {
   font: 14pt "Raleway", sans-serif;
   margin: 0;
-  overflow:scroll;
+  /*overflow:scroll;*/
 }
 
 body{
@@ -462,4 +462,22 @@ body.modal-open .datepicker {
     margin-top: 5em;
     color: #c7cbcf;
     font-size:larger;
+}
+
+
+
+/*/////////SKIPPED DIALOG/////////////*/
+.check{
+  color: lightgreen;
+  font-size:40px;
+}
+
+.modal-backdrop
+{
+  background-color:#c7cbcf !important;
+    opacity:0.5 !important;
+}
+
+.modal{
+  border:none;
 }

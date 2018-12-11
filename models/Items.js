@@ -3,10 +3,12 @@ var mongoose = require('mongoose');
 
 var ItemSchema = new mongoose.Schema({
   name: String,
-  price: Number,
   img: String,
-  autoOrder: Boolean,
+  price: Number,
   orderEvery: String,
+  autoOrder: Boolean,
+  useEmail: Boolean,
+  usePhone: Boolean,
   text: String,
   email: String,
   mobilNotif : Boolean,

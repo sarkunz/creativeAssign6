@@ -28,8 +28,7 @@ function MainCtrl($scope, $http, $dialog) {
         var itemToEdit = item;
         itemToEdit.edit = edit
 
-        $dialog.dialog(
-                angular.extend(dialogOptions, { resolve: { item: angular.copy(itemToEdit) } }))
+        $dialog.dialog(angular.extend(dialogOptions, { resolve: { item: angular.copy(itemToEdit) } }))
             .open()
             .then(function(result) {
                 console.log("then")
@@ -73,6 +72,8 @@ function MainCtrl($scope, $http, $dialog) {
     $scope.skipOrder = function($event, item){
         //switch statement. Move date back by item.orderEvery
         $event.stopPropagation();
+        $scope.showSkippedDialog(item);
+        
         var parts = item.nextOrder.split('-');
         var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
         switch (item.orderEvery) {
@@ -100,6 +101,12 @@ function MainCtrl($scope, $http, $dialog) {
         item.nextOrder = date.toISOString().substr(0, 10);
 
     }
+    
+    $scope.showSkippedDialog = function(){
+        $dialog.dialog({templateUrl:'/skippedDialog.html'}).open();
+        //TODO: close dialog
+    }
+    
     
     $scope.orderByDate = function(item) {
         if($scope.orderOpt == "byDate"){
@@ -146,6 +153,8 @@ function MainCtrl($scope, $http, $dialog) {
 function PopupCtrl($scope, item, dialog, $http) {
     $scope.item = item;
     $scope.today = new Date().toISOString().substr(0, 10);
+    item.email= "sarahmykelle@gmail.com";
+    item.phone="(555)555-5555";
 
     $scope.close = function() {
         dialog.close(undefined);
@@ -175,9 +184,11 @@ function PopupCtrl($scope, item, dialog, $http) {
             img: item.img,
             orderEvery: item.orderEvery,
             autoOrder: true,
+            useEmail : item.useEmail,
+            usePhone: item.usePhone,
             text: item.phone,
             email: item.email,
-            mobilNotif: item.mobile,
+            mobilNotif: item.mobileNotif,
             nextOrder: $('.datePicker').val(),
             vendor: item.vendor
         };
@@ -195,9 +206,11 @@ function PopupCtrl($scope, item, dialog, $http) {
             img: item.img,
             orderEvery: item.orderEvery,
             autoOrder: false,
+            useEmail : item.useEmail,
+            usePhone: item.usePhone,
             text: item.phone,
             email: item.email,
-            mobilNotif: item.mobile,
+            mobilNotif: item.mobileNotif,
             nextOrder: $('.datePicker').val(),
             vendor: item.vendor
         };

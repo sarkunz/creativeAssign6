@@ -29,7 +29,7 @@
             <h1 class="backg">Search Products</h1>
             <div class="horizontal searchCont">
                 <i class="material-icons">search</i>
-                <input type="text" class="searchBar" ng-model="searchPhrase">
+                <input type="text" class="searchBar" ng-model="searchPhrase" placeholder=" Search items from Amazon, Wal-Mart, and Costco">
             </div>
             <div class="searchResults">
                 <div class="result horizontal" ng-repeat="item in searchResults  | orderBy: item.price" id={{item.id}} ng-click="selectItem($event, item)">
