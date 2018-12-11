@@ -69,8 +69,21 @@
         "vendor": "Wal-Mart",
         "img": "https://images-na.ssl-images-amazon.com/images/I/81Z0WaYRYtL._SL1500_.jpg", 
         "itemDescript": "https://www.walmart.com/ip/IAMS-PROACTIVE-HEALTH-Adult-Minichunks-Dry-Dog-Food-Chicken-30-lb-Bag/23370270"
+    },
+    { 
+        "name": "Kirkland Signature Adult Chicken, Rice & Vegetable Dog Food 40 lb.", 
+        "price": "40.99", 
+        "vendor": "Costco",
+        "img": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=25347-847&recipeName=680", 
+        "itemDescript": "https://www.costco.com/Kirkland-Signature-Adult-Formula-Chicken%2c-Rice-and-Vegetable-Dog-Food-40-lb..product.100343454.html"
+    },
+    { 
+        "name": " Kirkland Signature Nature's Domain Salmon Meal & Sweet Potato Dog Food 35 lb.", 
+        "price": "43.99", 
+        "vendor": "Costco",
+        "img": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=470974-847&recipeName=680", 
+        "itemDescript": "https://www.costco.com/Kirkland-Signature-Nature's-Domain-Salmon-Meal-%2526-Sweet-Potato-Dog-Food-35-lb..product.100215967.html"
     }
-    
 
 ]
 

@@ -54,8 +54,8 @@
                                 <div class="infoText"><i>${{item.price}}</i></div>
                                 <div ng-show="item.autoOrder" class="infoText">Reordering every {{item.orderEvery}}</div>
                                 <div ng-show="!item.autoOrder" class="infoText">Reminding every {{item.orderEvery}}</div>
-                                <div ng-show="item.autoOrder" class="infoText">Next order: {{item.nextOrder}}</div>
-                                <div ng-show="!item.autoOrder" class="infoText">Next reminder: {{item.nextOrder}}</div>
+                                <div ng-show="item.autoOrder" class="infoText" style="font-weight:500">Next order: {{item.nextOrder}}</div>
+                                <div ng-show="!item.autoOrder" class="infoText" style="font-weight:500">Next reminder: {{item.nextOrder}}</div>
     
                                 <div class="horizontal center">
                                     <a ng-click="skipOrder($event, item)" class="button lilBtn">SKIP NEXT ORDER</a>

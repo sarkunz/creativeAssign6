@@ -15,6 +15,7 @@
       <div class="button" ng-click="addReminder(item)">ADD PURCHASE REMINDER</div>
       <div class="button" ng-click="addAutoPurch(item)">ADD AUTOMATED PURCHASE</div>
     </div>
+    <p ng-show="!item.edit && item.multResults" class="priceAlert"><span style="color:#ed553b">**</span>Other vendor(s) offer a lower price on item</p>
 
     <div class="itemForm" ng-show="item.edit">
       <h3 ng-show="!item.autoOrder">Purchase Reminder</h3>
@@ -67,7 +68,6 @@
         <a ng-show="item.autoOrder" ng-click="addAutoItem(item)" class="button saveBtn">SAVE</a>
         <a ng-show="!item.autoOrder" ng-click="addReminderItem(item)" class="button saveBtn">SAVE</a>
       </div>
-
 
     </div>
 

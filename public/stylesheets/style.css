@@ -271,9 +271,16 @@ input[type="email"]:focus {
   padding:1em;
 }
 
-.divider:first-child{
-  border-right:2px solid white;
+.optionsInfo {
+    max-width: 60%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: smaller;
+    padding:.5em;
 }
+
+
 
 /*/////////////HOME PAGE/////////////*/
 
@@ -450,6 +457,13 @@ body.modal-open .datepicker {
 
 .itemCont > .name{
   min-height:3.5em;
+}
+
+.priceAlert{
+  padding-top:2em; 
+  font-size:smaller; 
+  text-align:center; 
+  color: #c7cbcf;
 }
 
 /*////////////// SEARCH////////////////*/
