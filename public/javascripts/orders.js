@@ -49,11 +49,11 @@ function MainCtrl($scope, $http, $dialog) {
             count = 0;
             var regex = new RegExp($scope.searchPhrase, 'gi');
             if (item.name.match(regex)) { //^phrase to check beginning
-                if(index === 9){
+                if (index === 9) {
                     console.log("nine");
                     item.multResults = true;
                     console.log(item);
-                } 
+                }
                 else item.multResults = false;
                 //item.id = index;
                 $scope.searchResults.push(item);
@@ -68,32 +68,32 @@ function MainCtrl($scope, $http, $dialog) {
         var edit = false
         $scope.showDialog($event, item, edit);
     }
-    
-    $scope.skipOrder = function($event, item){
+
+    $scope.skipOrder = function($event, item) {
         //switch statement. Move date back by item.orderEvery
         $event.stopPropagation();
         $scope.showSkippedDialog(item);
-        
+
         var parts = item.nextOrder.split('-');
-        var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
+        var date = new Date(parseInt(parts[0]), parseInt(parts[1] - 1), parseInt(parts[2]));
         switch (item.orderEvery) {
             case 'day':
-                date.setDate(date.getDate()+1);
+                date.setDate(date.getDate() + 1);
                 break;
             case 'week':
-                date.setDate(date.getDate()+7);
+                date.setDate(date.getDate() + 7);
                 break;
             case 'twoweek':
-                date.setDate(date.getDate()+14);
+                date.setDate(date.getDate() + 14);
                 break;
             case 'month':
-                date.setMonth(date.getMonth()+1);
+                date.setMonth(date.getMonth() + 1);
                 break;
             case 'threemonth':
-                date.setMonth(date.getMonth()+3);
-                break; 
+                date.setMonth(date.getMonth() + 3);
+                break;
             case 'sixmonth':
-                date.setMonth(date.getMonth()+6);
+                date.setMonth(date.getMonth() + 6);
                 break;
             default:
                 // code
@@ -101,28 +101,30 @@ function MainCtrl($scope, $http, $dialog) {
         item.nextOrder = date.toISOString().substr(0, 10);
 
     }
-    
-    $scope.showSkippedDialog = function(){
-        $dialog.dialog({templateUrl:'/skippedDialog.html'}).open();
+
+    $scope.showSkippedDialog = function() {
+        $dialog.dialog({ templateUrl: '/skippedDialog.html' }).open();
         //TODO: close dialog
     }
-    
-    
+
+
     $scope.orderByDate = function(item) {
-        if($scope.orderOpt == "byDate"){
+        if ($scope.orderOpt == "byDate") {
             var parts = item.nextOrder.split('-');
-            var date = new Date(parseInt(parts[0]), parseInt(parts[1] -1), parseInt(parts[2]));
+            var date = new Date(parseInt(parts[0]), parseInt(parts[1] - 1), parseInt(parts[2]));
             return date;
-        } else if ($scope.orderOpt == "price"){
+        }
+        else if ($scope.orderOpt == "price") {
             return item.price;
-        }  else if ($scope.orderOpt == "name"){
+        }
+        else if ($scope.orderOpt == "name") {
             return item.name;
         }
-        
+
     }
 
 
-    //////////////// ROUTE CALLS ///////////////////////////////
+    /////////////////////////// MAINCTRL ROUTE CALLS ///////////////////////////////
     $scope.getAll = function() {
         return $http.get('/items').success(function(data) {
             angular.copy(data, $scope.customerItems);
@@ -148,13 +150,68 @@ function MainCtrl($scope, $http, $dialog) {
         $scope.getAll();
     }
 
+
+    ///////////////////////// MAINCTRL AUTHENTICATION STUFF ////////////////////////////
+    $scope.login = function($event) {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/plus.login');
+    
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            window.location.href = '/mainPg.html';
+            
+        });
+    }
+
+    $scope.initApp = function() {
+        //listen to get redirect result
+        firebase.auth().getRedirectResult().then(function(result) {
+            console.log("RETURNED------------");
+            if (result.credential) {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                
+                var token = result.credential.accessToken;
+                console.log(token);
+                // ...
+            }
+            // The signed-in user info.
+            var user = result.user;
+            
+        }).catch(function(error) { // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            console.log(errorMessage)
+            // ...
+        });
+
+        // [START authstatelistener]
+        firebase.auth().onAuthStateChanged(function(user) { //move to orders.js so we can put in scope
+            if (user) {
+                // window.location.href = '/mainPg.html';
+                console.log("USER");
+                console.log(user);
+                // User is signed in.
+                $scope.displayName = user.displayName;
+                $scope.email = user.email;
+                $scope.photoURL = user.photoURL;
+                // var isAnonymous = user.isAnonymous;
+                // var uid = user.uid;
+                // var providerData = user.providerData;
+            }
+
+
+        });
+
+    }
+
+
 }
 
 function PopupCtrl($scope, item, dialog, $http) {
     $scope.item = item;
     $scope.today = new Date().toISOString().substr(0, 10);
-    item.email= "sarahmykelle@gmail.com";
-    item.phone="(555)555-5555";
+    item.email = globalEmail;
+    item.phone = "(555)555-5555";
 
     $scope.close = function() {
         dialog.close(undefined);
@@ -176,7 +233,7 @@ function PopupCtrl($scope, item, dialog, $http) {
     }
 
 
-    ////////////// ROUTE FUNCTIONS ////////////////
+    ////////////// POPUP ROUTE FUNCTIONS ////////////////
     $scope.addAutoItem = function(item) {
         var newItem = {
             name: item.name,
@@ -184,7 +241,7 @@ function PopupCtrl($scope, item, dialog, $http) {
             img: item.img,
             orderEvery: item.orderEvery,
             autoOrder: true,
-            useEmail : item.useEmail,
+            useEmail: item.useEmail,
             usePhone: item.usePhone,
             text: item.phone,
             email: item.email,
@@ -206,7 +263,7 @@ function PopupCtrl($scope, item, dialog, $http) {
             img: item.img,
             orderEvery: item.orderEvery,
             autoOrder: false,
-            useEmail : item.useEmail,
+            useEmail: item.useEmail,
             usePhone: item.usePhone,
             text: item.phone,
             email: item.email,
@@ -219,27 +276,6 @@ function PopupCtrl($scope, item, dialog, $http) {
             window.location.href = '/mainPg.html';
         });
     }
-    
-    // $scope.updateItem = function(item){
-    //     var item = {
-    //         name: item.name,
-    //         price: item.price,
-    //         img: item.img,
-    //         orderEvery: item.orderEvery,
-    //         autoOrder: item.autoOrder,
-    //         useEmail : item.useEmail,
-    //         usePhone: item.usePhone,
-    //         text: item.phone,
-    //         email: item.email,
-    //         mobilNotif: item.mobileNotif,
-    //         nextOrder: $('.datePicker').val(),
-    //         vendor: item.vendor
-    //     };
-    //     $http.put('/update', item).success(function(data) {
-    //         console.log("updated!");
-    //     });
-    // }
-
 
 }
 
@@ -252,9 +288,10 @@ function SearchCtrl($scope, $http) {
 }
 
 $(document).ready(function() {
-    $('.downArrow').click(function(){
+    $('.downArrow').click(function() {
         console.log("Scrolling");
         $("html, body").animate({ scrollTop: 700 }, "slow");
     });
-    
+
+
 });
