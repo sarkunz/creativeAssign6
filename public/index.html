@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body ng-app="orders" ng-controller="MainCtrl">
     <div id="mainBackg">
         <div class="shade vertical">
             <div class="header">
@@ -39,7 +39,7 @@
                     <img class="logo" src="/images/BBlogo-white.svg"></img>
                     <span class="logoText white">BREEZE BUY</span>
                 </div>
-                <a class="login loginText white">LOGIN</a>
+                <a class="login loginText white" ng-click="login($event)">LOGIN</a>
                 <!--<div class="loginCont">-->
                 <!--    <input type="text" class="roundInp" placeholder="username" id="username" />-->
                 <!--    <input type="password" class="roundInp" placeholder="password" id="password" />-->
@@ -48,9 +48,9 @@
             </div>
             <div class="titleCont">
                 <h1 id="introMessage">Organize Your Purchases</h1>
-                <a class="button startBtn login">GET STARTED</a>
-                <p>or</p>
-                <a class="login loginText">LOGIN</a>
+                <a class="button startBtn login" ng-click="login($event)">GET STARTED WITH GOOGLE</a>
+                <!--<p>or</p>-->
+                <!--<a class="login loginText">LOGIN</a>-->
             </div>
             <i class="material-icons downArrow">keyboard_arrow_down</i>
         </div>
@@ -85,7 +85,7 @@
         </div>
         
 
-        <a class="button startBtn login" style="margin-top:4em">GET STARTED</a>
+        <a class="button startBtn login" style="margin-top:4em" ng-click="login($event)">GET STARTED WITH GOOGLE</a>
     </div>
 
 </body>
