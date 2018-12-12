@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/breezebuy', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/creative6', { useNewUrlParser: true });
 require('./models/Items');
 var db = mongoose.connection; //Saves the connection as a variable to use
 db.on('error', console.error.bind(console, 'connection error:')); //Checks for connection errors

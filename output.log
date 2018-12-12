@@ -1,8 +1,2 @@
 nohup: ignoring input
 Connected
-[0mGET / [32m200 [0m7.614 ms - 4255[0m
-[0mGET /javascripts/orders.js [32m200 [0m2.218 ms - 8921[0m
-[0mGET /stylesheets/style.css [32m200 [0m2.243 ms - 7004[0m
-[0mGET /javascripts/auth.js [33m404 [0m333.948 ms - 1914[0m
-[0mGET /images/BBlogo-white.svg [32m200 [0m0.903 ms - 1714[0m
-[0mGET /images/aisle.jpg [32m200 [0m0.608 ms - 3167597[0m
