@@ -265,7 +265,7 @@ input[type="email"]:focus {
   font-weight:500;
   font-size:larger;
   width:80%;
-}
+}bold
 
 .infoBar > p{
   padding:1em;
@@ -388,7 +388,11 @@ input[type="email"]:focus {
 }
 
 .popupAction {
-  padding: 2em 1em;
+  padding: 1em;
+}
+
+.addButtons {
+  margin: 2em 0;
 }
 
 .buttonsCont {
@@ -502,4 +506,6 @@ body.modal-open .datepicker {
 
 .modal{
   border:none;
+  top:7%;
 }
+

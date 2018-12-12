@@ -55,8 +55,8 @@
         </tbody>
       </table>
 
-      <p ng-show="!item.autoOrder"><i>Via:</i></p>
-      <p ng-show="item.autoOrder"><i>Notify me of purchase via:</i></p>
+      <p ng-show="!item.autoOrder" style="padding-top:1em"><i>Via:</i></p>
+      <p ng-show="item.autoOrder" style="padding-top:1em"><i>Notify me of purchase via:</i></p>
       <ul class='reminderList'>
         <li><input type="checkbox" ng-model="item.usePhone"> text to <input type="tel" placeholder="(123)456-7890" ng-model="item.phone"></li>
         <li><input type="checkbox" ng-model="item.useEmail"> email to <input type="email" ng-model="item.email" placeholder="email@mail.com"></li>
